@@ -9,6 +9,7 @@ import { Preferences } from '@capacitor/preferences';
 })
 export class PhotoService {
   public photos: UserPhoto[] = [];
+  private PHOTO_STORAGE: string = 'photos';
 
   // Función para convertir una imagen en base64
   private async readAsBase64(photo: Photo): Promise<string> {
@@ -60,11 +61,18 @@ export class PhotoService {
       source: CameraSource.Camera,
       quality: 100
     });
+    Preferences.set({
+      key:this.PHOTO_STORAGE,
+      value: JSON.stringify(this.photos),
+    });
 
     // Guardar la imagen y añadirla a la colección de fotos
     const savedImageFile = await this.savePicture(capturedPhoto);
     this.photos.unshift(savedImageFile);
   }
+}
+public async loadSaved(){
+  //Retrieve cached
 }
 
 // Definición de la interfaz UserPhoto
