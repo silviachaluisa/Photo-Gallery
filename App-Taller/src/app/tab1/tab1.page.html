@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculadora</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-input [(ngModel)]="display" readonly></ion-input>
+
+  <div class="buttons">
+    <ion-button (click)="appendToDisplay('7')">7</ion-button>
+    <ion-button (click)="appendToDisplay('8')">8</ion-button>
+    <ion-button (click)="appendToDisplay('9')">9</ion-button>
+    <ion-button (click)="appendToDisplay('/')">÷</ion-button><br>
+
+    <ion-button (click)="appendToDisplay('4')">4</ion-button>
+    <ion-button (click)="appendToDisplay('5')">5</ion-button>
+    <ion-button (click)="appendToDisplay('6')">6</ion-button>
+    <ion-button (click)="appendToDisplay('*')">x</ion-button><br>
+
+    <ion-button (click)="appendToDisplay('1')">1</ion-button>
+    <ion-button (click)="appendToDisplay('2')">2</ion-button>
+    <ion-button (click)="appendToDisplay('3')">3</ion-button>
+    <ion-button (click)="appendToDisplay('0')">0</ion-button><br>
+
+    <ion-button (click)="appendToDisplay('-')">-</ion-button>
+    <ion-button (click)="appendToDisplay('.')">.</ion-button>
+    <ion-button (click)="calculateResult()">=</ion-button>
+    <ion-button (click)="appendToDisplay('+')">+</ion-button>
+  </div>
+</ion-content>
